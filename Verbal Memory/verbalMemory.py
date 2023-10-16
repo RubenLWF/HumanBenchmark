@@ -3,10 +3,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
-#import pyautogui
 
-global browser
-browser = webdriver.Chrome()
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+options.add_argument('--ignore-certificate-errors-spki-list')
+
+browser = webdriver.Chrome(options=options)
 
 url = "https://humanbenchmark.com/tests/verbal-memory"
 browser.get(url)
@@ -23,9 +25,9 @@ seen = browser.find_element(By.XPATH, '//button[text()="SEEN"]')
 new = browser.find_element(By.XPATH, '//button[text()="NEW"]')
 words = []
 seenWord = False
-count = 0
 
-while (count <= 999):
+i = 0
+while (i <= 999):
     word = browser.find_element(By.CLASS_NAME, "word").text
     for x in words:
         if x == word:
@@ -37,7 +39,4 @@ while (count <= 999):
         words.append(word)
         new.click()
         seenWord = False
-    count += 1
-
-print('Close window?')
-x = input()
+    i += 1

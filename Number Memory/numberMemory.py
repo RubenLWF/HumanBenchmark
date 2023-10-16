@@ -2,10 +2,12 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
-#import pyautogui
 
-global browser
-browser = webdriver.Chrome()
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+options.add_argument('--ignore-certificate-errors-spki-list')
+
+browser = webdriver.Chrome(options=options)
 
 url = "https://humanbenchmark.com/tests/number-memory"
 browser.get(url)
@@ -25,8 +27,6 @@ while (i < 99):
         pass
     browser.find_element(By.XPATH, "//input[@type='text']").send_keys(number)
     browser.find_element(By.XPATH, '//button[text()="Submit"]').click()
+    print(i)
     browser.find_element(By.XPATH, '//button[text()="NEXT"]').click()
     i += 1
-    
-print('Close window?')
-x = input()
