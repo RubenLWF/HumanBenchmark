@@ -1,11 +1,9 @@
-import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from bs4 import BeautifulSoup
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
-options.add_argument('--ignore-certificate-errors-spki-list')
+options.add_argument('log-level=3')
 
 browser = webdriver.Chrome(options=options)
 
@@ -13,9 +11,7 @@ url = "https://humanbenchmark.com/tests/number-memory"
 browser.get(url)
 
 print('Ready to start?')
-test = input()
-
-page_source = browser.page_source
+startWait = input()
 
 start = browser.find_element(By.XPATH, '//button[text()="Start"]')
 start.click()
