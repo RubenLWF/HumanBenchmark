@@ -27,7 +27,7 @@ w, h = size['width'], size['height']
 x = window['x'] + location['x']
 y = window['y'] + location['y'] + 131
 
-target = cv2.imread("Aim Trainer/target2.jpg", 1)
+target = cv2.imread("Aim Trainer/target.jpg", 1)
 target = cv2.cvtColor(target, cv2.COLOR_BGR2GRAY)
 target = cv2.Canny(target, 50,200)
 
