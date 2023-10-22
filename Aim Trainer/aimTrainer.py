@@ -20,9 +20,9 @@ browser.get(url)
 print('Ready to start?')
 startWait = input()
 
-e = browser.find_element(By.XPATH, '//*[@id="root"]/div/div[4]/div[1]/div/div[1]/div[2]')
-location = e.location
-size = e.size
+div = browser.find_element(By.XPATH, '//*[@id="root"]/div/div[4]/div[1]/div/div[1]/div[2]')
+location = div.location
+size = div.size
 w, h = size['width'], size['height']
 x = window['x'] + location['x']
 y = window['y'] + location['y'] + 131
@@ -32,7 +32,6 @@ target = cv2.cvtColor(target, cv2.COLOR_BGR2GRAY)
 target = cv2.Canny(target, 50,200)
 
 with mss.mss() as sct:
-    # The screen part to capture
     monitor = {"top": y, "left": x, "width": w, "height": h}
     i = 0
 
