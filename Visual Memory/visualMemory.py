@@ -7,6 +7,8 @@ options.add_experimental_option("detach", True)
 options.add_argument('log-level=3')
 
 browser = webdriver.Chrome(options=options)
+browser.set_window_position(1270, 0)
+browser.set_window_size(1300, 1050)
 
 url = "https://humanbenchmark.com/tests/memory"
 browser.get(url)
