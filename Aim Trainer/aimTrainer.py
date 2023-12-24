@@ -33,15 +33,14 @@ target = cv2.Canny(target, 50,200)
 
 with mss.mss() as sct:
     monitor = {"top": y, "left": x, "width": w, "height": h}
-    i = 0
-
-    while i < 150:
-        img = np.array(sct.grab(monitor))
-        gray = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2GRAY)
-        edged = cv2.Canny(gray, 50, 200)
+    img = cv2.cvtColor(np.array(sct.grab(monitor)), cv2.COLOR_RGBA2RGB)
+    save = img[400, 350]
+    while (not (save[0] == 84)):
+        img = cv2.cvtColor(np.array(sct.grab(monitor)), cv2.COLOR_RGBA2RGB)
+        save = img[400, 350]
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         res = cv2.matchTemplate(gray, target, cv2.TM_CCOEFF)
         a, b, min_loc, max_loc = cv2.minMaxLoc(res)
         (startX, startY) = (int(max_loc[0]), int(max_loc[1]))
         mouse.move(startX + 50 + x, startY + 50 + y)
         mouse.click()
-        i += 1
