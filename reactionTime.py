@@ -22,7 +22,7 @@ def reactionTime():
     url = "https://humanbenchmark.com/tests/reactiontime"
     browser.get(url)
 
-    input('Ready to start? ')
+    input('Ready to start? (Make sure you\'re logged in) ')
 
     div = browser.find_element(By.XPATH, '//*[@id="root"]/div/div[4]/div[1]/div')
     location = div.location

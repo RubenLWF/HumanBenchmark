@@ -15,7 +15,7 @@ def visualMemory():
     browser.get(url)
 
     stopScore = input('What score do you want to go to? ')
-    input('Ready to start?')
+    input('Ready to start? (Make sure you\'re logged in) ')
 
     browser.find_element(By.XPATH, '//button[text()="Start"]').click()
 

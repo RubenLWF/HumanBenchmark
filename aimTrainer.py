@@ -25,7 +25,7 @@ def aimTrainer():
     browser.get(url)
 
     stopClicks = input('How many times should be clicked? (Machine dependant) ')
-    input('Ready to start? ')
+    input('Ready to start? (Make sure you\'re logged in) ')
 
     div = browser.find_element(By.XPATH, '//*[@id="root"]/div/div[4]/div[1]/div/div[1]/div[2]')
     location = div.location

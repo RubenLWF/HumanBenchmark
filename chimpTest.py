@@ -23,7 +23,7 @@ def chimpTest():
     if (int(stopScore) > 37):
         stopScore = 37
 
-    input('Ready to start? ')
+    input('Ready to start? (Make sure you\'re logged in) ')
 
 
     i = 0

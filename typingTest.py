@@ -18,7 +18,7 @@ def typingTest():
     url = "https://humanbenchmark.com/tests/typing"
     browser.get(url)
 
-    input('Ready to start? ')
+    input('Ready to start? (Make sure you\'re logged in) ')
 
     text = browser.find_element(By.XPATH, './/span[@class = "incomplete current"]').text
 
