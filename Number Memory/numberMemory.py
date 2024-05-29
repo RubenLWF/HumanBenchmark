@@ -20,8 +20,7 @@ browser.get(url)
 stopScore = input('What score do you want to go to? ')
 input('Ready to start? ')
 
-start = browser.find_element(By.XPATH, '//button[text()="Start"]')
-start.click()
+browser.find_element(By.XPATH, '//button[text()="Start"]').click()
 
 i = 0
 while (i < int(stopScore)):
