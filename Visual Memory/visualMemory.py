@@ -13,11 +13,27 @@ browser.set_window_size(1300, 1050)
 url = "https://humanbenchmark.com/tests/memory"
 browser.get(url)
 
-print('Ready to start?')
-startWait = input()
+stopScore = input('What score do you want to go to? ')
+input('Ready to start?')
 
-start = browser.find_element(By.XPATH, '//button[text()="Start"]')
-start.click()
+browser.find_element(By.XPATH, '//button[text()="Start"]').click()
+
 time.sleep(1)
 
-grid = browser.find_elements(By.XPATH, './/div[@class = "css-hvbk5q eut2yre0"]//*')
+i = 0
+while (i < int(stopScore) - 1):
+    active = browser.find_elements(By.XPATH, "//div[contains(@class, 'active')]")
+
+    time.sleep(1.5)
+
+    for a in active:
+        a.click()
+
+    while len(browser.find_elements(By.XPATH, "//span[text()='{level}']".format(level = str(i + 2)))) == 0:
+        pass
+    
+    time.sleep(0.5)
+
+    i += 1
+
+input("Press enter to exit...")

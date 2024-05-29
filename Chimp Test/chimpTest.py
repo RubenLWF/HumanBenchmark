@@ -18,8 +18,10 @@ url = "https://humanbenchmark.com/tests/chimp"
 browser.get(url)
 
 stopScore = input('What score do you want to go to? ')
+
 if (int(stopScore) > 37):
     stopScore = 37
+    
 input('Ready to start? ')
 
 
