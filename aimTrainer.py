@@ -54,3 +54,4 @@ def aimTrainer():
             i += 1
 
     input("Press enter to exit...")
+    browser.close()

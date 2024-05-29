@@ -17,26 +17,27 @@ def chimpTest():
 
     url = "https://humanbenchmark.com/tests/chimp"
     browser.get(url)
-    
+
     stopScore = input('What score do you want to go to? ')
-    
+
     if (int(stopScore) > 37):
         stopScore = 37
-        
+
     input('Ready to start? ')
-    
-    
+
+
     i = 0
     while (i < int(stopScore)):
         if (i == 0):
             browser.find_element(By.XPATH, '//button[text()="Start Test"]').click()
         else:
             browser.find_element(By.XPATH, '//button[text()="Continue"]').click()
-    
+
         j = 1
         while (j <= i + 4):
             browser.find_element(By.XPATH, "//div[@data-cellnumber='{num}']".format(num = str(j))).click()
             j += 1
         i += 1
-    
+
     input("Press enter to exit...")
+    browser.close()

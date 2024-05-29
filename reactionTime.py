@@ -40,3 +40,4 @@ def reactionTime():
             i += 1
 
     input("Press enter to exit...")
+    browser.close()
