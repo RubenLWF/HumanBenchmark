@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from screeninfo import get_monitors
 import time
 
 def sequenceMemory():
@@ -7,9 +8,13 @@ def sequenceMemory():
     options.add_experimental_option("detach", True)
     options.add_argument('log-level=3')
 
+    mainMonitor = get_monitors()[0]
+    monitorWidth = mainMonitor.width
+    monitorHeight = mainMonitor.height
+
     browser = webdriver.Chrome(options=options)
-    browser.set_window_position(1270, 0)
-    browser.set_window_size(1300, 1050)
+    browser.set_window_position(monitorWidth/2, 0)
+    browser.set_window_size(monitorWidth/2, monitorHeight-30)
 
     url = "https://humanbenchmark.com/tests/sequence"
     browser.get(url)
